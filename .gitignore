@@ -1,2 +1,6 @@
 main
+ccrc
+icon
 /.vscode/
+*.o
+*.so

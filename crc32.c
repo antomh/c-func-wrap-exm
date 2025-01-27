@@ -5,6 +5,8 @@ https://ru.wikibooks.org/wiki/%D0%A0%D0%B5%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D
 
 #include "crc32.h"
 
+#include <stdio.h>
+
 /*
   Name  : CRC-32
   Poly  : 0x04C11DB7    x^32 + x^26 + x^23 + x^22 + x^16 + x^12 + x^11
@@ -38,4 +40,16 @@ uint_least32_t crc32(unsigned char *buf, size_t len)
         crc = crc_table[(crc ^ *buf++) & 0xFF] ^ (crc >> 8);
 
     return crc ^ 0xFFFFFFFFUL;
+}
+
+
+__attribute__((__constructor__))
+static void init(void) {
+    printf("Hello from constructor!\n");
+}
+
+
+__attribute__((__destructor__))
+static void fini(void) {
+    printf("Hello from destructor!\n");
 }
