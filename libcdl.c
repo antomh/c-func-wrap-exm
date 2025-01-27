@@ -1,7 +1,6 @@
 #define _GNU_SOURCE
 #include "libcdl.h"
 #include <stdio.h>
-#include <dlfcn.h>
 
 
 // Оригинальная функция dlopen
